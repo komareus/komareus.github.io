@@ -27,6 +27,9 @@ export default {
       }
     ]
   },
+  // router: {
+  //   base: '/'
+  // },
   /*
    ** Customize the progress-bar color
    */
@@ -42,6 +45,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/breakpoint-fix.js', ssr: true },
+    { src: '~/plugins/filters.js', ssr: true },
   ],
   /*
    ** Nuxt.js modules
@@ -65,10 +69,11 @@ export default {
    */
   vuetify: {
     theme: {
-      primary: '#8c2aff',
-      accent: '#13ffa2',
+      primary: '#323063',
+      accent: '#ffc000',
       background: '#f0f1f3',
-      secondary: colors.amber.darken3,
+      secondary: '#ff8f00',
+      secondaryDark: '#9b5700',
       info: colors.teal.lighten1,
       warning: colors.amber.base,
       error: colors.deepOrange.accent4,

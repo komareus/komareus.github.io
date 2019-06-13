@@ -7,12 +7,12 @@
       v-if="$breakpoint.is('smAndDown')"
       v-model="drawer"
     ></a-side-bar>
-    <v-content class="default-layout__main-content pb-3">
+    <v-content class="default-layout__main-content pb-0 grey lighten-2">
       <v-layout wrap px-0 pt-0>
         <nuxt />
       </v-layout>
     </v-content>
-    <!-- <a-footer></a-footer>-->
+    <a-footer></a-footer>
     <!--<pop-up
       action-type="Actions"
       type="ErrorData"
@@ -24,8 +24,7 @@
 </template>
 
 <script>
-// import AHeader from '~/components/default-layout/AHeader'
-// import AFooter from '~/components/default-layout/AFooter'
+import AFooter from '~/components/default-layout/AFooter'
 // import AEntrance from '~/components/default-layout/AEntrance'
 import ASideBar from '~/components/default-layout/ASideBar'
 import AHeader from '~/components/default-layout/AHeader'
@@ -36,8 +35,7 @@ export default {
     // PopUp,
     ASideBar,
     // AEntrance,
-
-    // AFooter
+    AFooter
   },
   data() {
     return {

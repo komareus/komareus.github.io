@@ -1,7 +1,7 @@
 <template>
   <v-toolbar
     fixed
-    color="white"
+    color="secondary"
     app
     clipped-left
     class="main-toolbar elevation-0"
@@ -9,10 +9,10 @@
     :scroll-threshold="150"
     :extended="!isMobile"
     extension-height="50px"
-    height="20px"
+    :height="isMobile ? '48px' : '20px'"
   >
     <v-layout v-if="!isMobile" class="main-toolbar__top-row" column px-0>
-      <v-system-bar status color="white">
+      <v-system-bar status color="secondary">
         <v-container py-0>
           <v-layout>
             <v-spacer v-if="!isMobile"></v-spacer>
@@ -29,7 +29,7 @@
       </v-system-bar>
     </v-layout>
     <v-layout
-      :slot="!isMobile ? 'extension' : 'default'"
+      :slot="isMobile ? 'default' : 'extension'"
       class="main-toolbar__extension"
       wrap
     >
@@ -41,9 +41,9 @@
             @click="toggleSideBar"
           ></v-toolbar-side-icon>
           <nuxt-link to="/">
-            <div class="main-toolbar__logo">
-              LOGO
-            </div>
+            <h1 class="main-toolbar__logo">
+              ТРИ БОГАТИРІ
+            </h1>
           </nuxt-link>
           <nav-bar
             class="main-toolbar__nav-bar"
@@ -62,8 +62,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import NavBar from '~/components/shared/ANavBar'
-import config from '~/utils/configs/mainMenu.js'
+import NavBar from '~/components/shared/ANavBar';
+import config from '~/utils/configs/mainMenu.js';
 export default {
   name: 'AHeader',
   components: { NavBar },
@@ -114,7 +114,7 @@ export default {
 
 <style lang="scss">
   .main-toolbar {
-    border-bottom: 4px solid $c--general-background !important;
+    border-bottom: 4px solid $c--secondary-dark !important;
     z-index: 100;
     &-menu-icon{
       top: 10px;

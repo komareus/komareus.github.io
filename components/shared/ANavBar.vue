@@ -7,7 +7,7 @@
       :hide-slider="disable"
     >
       <v-tabs-slider
-        color="primary"
+        color="accent"
         lass="header-nav__slider"
         :style="{ height: sliderHeight + 'px' }"
       ></v-tabs-slider>
