@@ -1,14 +1,16 @@
 <template>
   <v-container>
-    <h1 class="mb-5">
+    <page-title>
       Фото порталу
-    </h1>
+    </page-title>
   </v-container>
 </template>
 
 <script>
+import PageTitle from '../components/shared/PageTitle'
 export default {
-  name: 'foto'
+  name: 'foto',
+  components: { PageTitle }
 }
 </script>
 

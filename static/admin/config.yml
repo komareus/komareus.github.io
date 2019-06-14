@@ -1,9 +1,17 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: bestkolobok/bestkolobok.github.io # Path to your GitHub repository
+  accept_roles: #optional - accepts all users if left out
+      - admin
+      - editor
   branch: master # Branch to update (optional; defaults to master)
+  base_url: https://bestkolobok.github.io/admin
 
-media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+publish_mode: editorial_workflow # This line should *not* be indented
+
+media_folder: "static/img/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/img/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
@@ -18,6 +26,7 @@ collections:
       - {label: Content, name: body, widget: "markdown"}
   - label: "Pages"
     name: "pages"
+    create: true # Allow users to create new documents in this collection
     files:
       - label: "Page 1"
         name: "page-1"

@@ -1,12 +1,16 @@
 <template>
-  <section>
-    LOGIN
-  </section>
+  <v-container>
+    <page-title>
+      Login
+    </page-title>
+  </v-container>
 </template>
 
 <script>
+import PageTitle from '~/components/shared/PageTitle'
 export default {
-  name: 'login'
+  name: 'login',
+  components: { PageTitle }
 }
 </script>
 

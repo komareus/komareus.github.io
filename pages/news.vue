@@ -1,21 +1,24 @@
 <template>
   <v-container>
-    <h1 class="mb-5">
+    <page-title>
       Новини порталу
-    </h1>
+    </page-title>
     <v-layout
       v-for="(item, i) in 20"
       :key="i"
-      class="mb-5"
+      class="mb-3"
     >
-      НОВИНА
+      <news-card></news-card>
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import PageTitle from '~/components/shared/PageTitle'
+import NewsCard from '~/components/news/NewsCard'
 export default {
-  name: 'news'
+  name: 'news',
+  components: { NewsCard, PageTitle }
 }
 </script>
 
