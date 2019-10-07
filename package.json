@@ -14,11 +14,15 @@
     "generate:prod": "cross-env NODE_ENV=production nuxt generate"
   },
   "dependencies": {
+    "@nuxt/common": "^2.3.4",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.3.0",
+    "@nuxtjs/markdownit": "^1.2.5",
+    "@nuxtjs/proxy": "^1.3.3",
     "@nuxtjs/pwa": "^2.6.0",
     "@nuxtjs/vuetify": "^0.5.6",
-    "nuxt": "^2.8.1",
+    "axios": "^0.19.0",
+    "nuxt": "^2.2.0",
     "vuetify-loader": "^1.2.2"
   },
   "devDependencies": {
@@ -39,6 +43,7 @@
     "eslint-plugin-promise": ">=4.0.1",
     "eslint-plugin-standard": ">=4.0.0",
     "eslint-plugin-vue": "^5.2.2",
+    "netlify-cms": "^2.9.1",
     "node-sass": "^4.12.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.4",

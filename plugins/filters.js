@@ -8,6 +8,15 @@ const filters = {
     }
     return ''
   },
+  formatDateTime(date) {
+    if (date) {
+      const cutDate = date.length <= 10 ? date : date.slice(0, 10);
+      const reverseDate = cutDate.split('-').reverse().join('.');
+      const time = date.slice(11, 16);
+      return `${reverseDate} ${time}`;
+    }
+    return ''
+  },
   formatPhone(phoneString) {
     const phone = phoneString.indexOf('+38') !== -1 ? phoneString.replace(/\+38/g, "") : phoneString;
     return `(${phone.slice(0, 3)}) ${phone.slice(3, 6)} ${phone.slice(6, 8)} ${phone.slice(8, 10)} ${phone.slice(10, 12)}`
@@ -65,6 +74,7 @@ const filters = {
 }
 
 Vue.filter('FormatDate', filters.formatDate);
+Vue.filter('FormatDateTime', filters.formatDateTime);
 Vue.filter('FormatPhone', filters.formatPhone);
 Vue.filter('FormatAmountCop', filters.formatAmountCop);
 Vue.filter('FormatAmountRound', filters.formatAmountRound);

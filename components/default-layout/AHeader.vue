@@ -16,13 +16,13 @@
         <v-container py-0>
           <v-layout>
             <v-spacer v-if="!isMobile"></v-spacer>
-            <nuxt-link :to="{ name: 'login' }">
+            <a href="/admin">
               <button class="main-toolbar__log-in primary--text" v-ripple>
                 <v-icon color="primary">
                   input
-                </v-icon> Реєстрація
+                </v-icon> Службовий вхід
               </button>
-            </nuxt-link>
+            </a>
             <v-spacer v-if="isMobile"></v-spacer>
           </v-layout>
         </v-container>

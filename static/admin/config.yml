@@ -1,44 +1,59 @@
+media_folder: img/uploads
 backend:
-  name: github
-  repo: bestkolobok/bestkolobok.github.io # Path to your GitHub repository
-  accept_roles: #optional - accepts all users if left out
-      - admin
-      - editor
-  branch: master # Branch to update (optional; defaults to master)
-  base_url: https://bestkolobok.github.io/admin
-
-
-publish_mode: editorial_workflow # This line should *not* be indented
-
-media_folder: "static/img/uploads" # Media files will be stored in the repo under static/images/uploads
-public_folder: "/img/uploads" # The src attribute for uploaded media will begin with /images/uploads
-
+#  name: github
+  name: git-gateway
+#  repo: komareus/komareus.github.io
+  branch: master
+#  site_domain: komareus.github.io
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
-    folder: "content/blog/posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: Title, name: title, widget: string, required: true}
-      - {label: Description, name: description, widget: text, required: true}
-      - {label: Publish date, name: date, widget: "datetime"}
-      - {label: Content, name: body, widget: "markdown"}
-  - label: "Pages"
-    name: "pages"
-    create: true # Allow users to create new documents in this collection
-    files:
-      - label: "Page 1"
-        name: "page-1"
-        file: "content/pages/page-1.md"
+#  - name: blog
+#    label: Blog
+#    folder: 'content/documents'
+#    format: json
+#    create: true
+#    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+#    fields:
+#      - label: Title
+#        name: title
+#        widget: string
+#        required: true
+#      - label: Description
+#        name: description
+#        widget: text
+#        required: true
+#      - label: Publish date
+#        name: date
+#        widget: datetime
+#      - label: Content
+#        name: body
+#        widget: markdown
+  - name: news
+    label: News
+    folder: 'content/news'
+    format: json
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{slug}}'
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        required: true
+      - label: Publish date
+        name: date
+        widget: datetime
+      - label: Short text
+        name: short
+        widget: text
+        required: true
+      - label: Content
+        name: body
+        widget: list
+        allow_add: true
         fields:
-          - {label: Title, name: title, widget: string, required: true}
-          - {label: Description, name: description, widget: text, required: true}
-          - {label: Content, name: body, widget: markdown}
-      - label: "Page 2"
-        name: "page-2"
-        file: "content/pages/page-2.md"
-        fields:
-          - {label: Title, name: title, widget: string, required: true}
-          - {label: Description, name: description, widget: text, required: true}
-          - {label: Content, name: body, widget: markdown}
+          - {label: Paragraph, name: body, widget: markdown}
+          - label: Images
+            name: img
+            widget: list
+            allow_add: true
+            fields:
+              - {label: Image, name: src, widget: image}

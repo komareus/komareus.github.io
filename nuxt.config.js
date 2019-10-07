@@ -1,8 +1,16 @@
-import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+// import getDynamicRoutes from './utils/getDynamicRoutes.js'
+// const colors = require('vuetify/es5/util/colors')
 
 export default {
   mode: 'universal',
+  // generate: {
+  //   async routes() {
+  //     const newsRoutes = await getDynamicRoutes()
+  //     return newsRoutes.map(name => `/news/${name}`)
+  //   }
+  // },
   /*
    ** Headers of the page
    */
@@ -30,6 +38,9 @@ export default {
   // router: {
   //   base: '/'
   // },
+  env: {
+    BASE_URL: process.env.BASE_URL || 'http://localhost:3000'
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -57,13 +68,27 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/markdownit'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  // proxy: {
+  //   // '/contents/': {
+  //   //   target: 'https://api.github.com/repos/bestkolobok/bestkolobok.github.io/',
+  //   //   // pathRewrite: { '^/contents': '' }
+  //   // },
+  //   // '/master/': {
+  //   //   target: 'https://raw.githubusercontent.com/bestkolobok/bestkolobok.github.io/',
+  //   // },
+  //   // logLevel: 'debug'
+  // },
+  markdownit: {
+    injected: true
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -75,10 +100,10 @@ export default {
       background: '#f0f1f3',
       secondary: '#ff8f00',
       secondaryDark: '#9b5700',
-      info: colors.teal.lighten1,
-      warning: colors.amber.base,
-      error: colors.deepOrange.accent4,
-      success: colors.green.accent3
+      // info: colors.teal.lighten1,
+      // warning: colors.amber.base,
+      // error: colors.deepOrange.accent4,
+      // success: colors.green.accent3
     }
   },
   styleResources: {
