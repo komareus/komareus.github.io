@@ -2,6 +2,7 @@ const contentBranch = 'master';
 const repositoryName = 'komareus';
 const listServerItems = `https://api.github.com/repos/${repositoryName}/${repositoryName}.github.io/contents/content`;
 const serverContentItems = `https://raw.githubusercontent.com/${repositoryName}/${repositoryName}.github.io/${contentBranch}/content`;
+const adminUrl = 'https://investor182.netlify.com/admin/'
 
 const news = {
   newsIndexList: listServerItems + '/news',
@@ -13,5 +14,6 @@ const news = {
 export default {
   news,
   repositoryName,
-  contentBranch
+  contentBranch,
+  adminUrl
 }

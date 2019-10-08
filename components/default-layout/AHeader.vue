@@ -16,7 +16,7 @@
         <v-container py-0>
           <v-layout>
             <v-spacer v-if="!isMobile"></v-spacer>
-            <a href="/admin">
+            <a :href="adminUrl" target="_blank">
               <button class="main-toolbar__log-in primary--text" v-ripple>
                 <v-icon color="primary">
                   input
@@ -64,6 +64,7 @@
 import { mapGetters } from 'vuex';
 import NavBar from '~/components/shared/ANavBar';
 import config from '~/utils/configs/mainMenu.js';
+import api from './api'
 export default {
   name: 'AHeader',
   components: { NavBar },
@@ -75,6 +76,7 @@ export default {
   },
   data() {
     return {
+      adminUrl: api.adminUrl
     }
   },
   methods: {
