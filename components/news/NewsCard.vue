@@ -50,8 +50,8 @@ export default {
   },
   computed: {
     addImgUrl() {
-      if (process.static) return ''
-      return `https://raw.githubusercontent.com/${api.repositoryName}/${api.repositoryName}.github.io/master/`
+      if (process.static) return `${api.repositoryName}.github.io`
+      return `https://raw.githubusercontent.com/${api.repositoryName}/${api.repositoryName}.github.io/master`
     }
   }
 }
