@@ -4,7 +4,7 @@ backend:
 #  name: github
   name: git-gateway
 #  repo: komareus/komareus.github.io
-  branch: prod
+  branch: master
   accept_roles: #optional - accepts all users if left out
       - admin
       - editor
