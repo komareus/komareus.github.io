@@ -87,5 +87,5 @@ sw.*
 # Mac OSX
 .DS_Store
 
-# Nuxt generate
-img
+# CMS img
+img/img/uploads
