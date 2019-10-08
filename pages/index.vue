@@ -54,6 +54,9 @@ export default {
     return {
       test: 'test1'
     }
+  },
+  mounted() {
+    localStorage.setItem('netlifySiteURL', 'https://investor182.netlify.com');
   }
 }
 </script>
