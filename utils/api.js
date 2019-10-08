@@ -1,6 +1,7 @@
+const contentBranch = 'prod';
 const repositoryName = 'komareus';
 const listServerItems = `https://api.github.com/repos/${repositoryName}/${repositoryName}.github.io/contents/content`;
-const serverContentItems = `https://raw.githubusercontent.com/${repositoryName}/${repositoryName}.github.io/master/content`;
+const serverContentItems = `https://raw.githubusercontent.com/${repositoryName}/${repositoryName}.github.io/${contentBranch}/content`;
 
 const news = {
   newsIndexList: listServerItems + '/news',
@@ -11,5 +12,6 @@ const news = {
 
 export default {
   news,
-  repositoryName
+  repositoryName,
+  contentBranch
 }
