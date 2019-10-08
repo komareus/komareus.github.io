@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      test: 'test1'
+      test: 'test2'
     }
   }
 }
