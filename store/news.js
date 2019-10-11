@@ -8,7 +8,7 @@ export default {
       newsIndexList: [],
       newsList: [],
       newsItem: {},
-      pageSize: 4
+      pageSize: 10
     }
   },
   mutations: {
