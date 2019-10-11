@@ -2299,4 +2299,10 @@
   !*** external {"commonjs":"vue","commonjs2":"vue","amd":"vue","root":"Vue"} ***!
   \******************************************************************************/
 
+/**
+ * vue-expandable-image v0.1.0
+ * (c) 2019 Taha Shashtari
+ * @license MIT
+ */
+
 /*! https://mths.be/punycode v1.4.1 by @mathias */
