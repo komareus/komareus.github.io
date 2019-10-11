@@ -8,14 +8,13 @@ export default {
       newsIndexList: [],
       newsList: [],
       newsItem: {},
-      pageSize: 10
+      pageSize: 4
     }
   },
   mutations: {
     [types.SET_NEWS_INDEX_LIST](state, { data }) {
       const list = data.map(item => item.name.split('.')[0])
       state.newsIndexList = list.sort((a, b) => {
-        console.log(a, b)
         if (a > b) return -1;
         if (a < b) return 1;
         return 0;
@@ -68,7 +67,7 @@ export default {
         }, [])
         const newsList = await Promise.all(fetchList);
         const newsListMap = newsList.map((item, i) => {
-          return { ...item, name: list[i] }
+          return { ...item, name: list()[i] }
         })
         commit(types.SET_NEWS_LIST, { newsList: newsListMap })
       } catch (err) {
