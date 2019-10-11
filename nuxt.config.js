@@ -5,12 +5,13 @@ import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 
 export default {
   mode: 'spa',
-  // generate: {
-  //   async routes() {
-  //     const newsRoutes = await getDynamicRoutes()
-  //     return newsRoutes.map(name => `/news/${name}`)
-  //   }
-  // },
+  generate: {
+    // async routes() {
+    //   const newsRoutes = await getDynamicRoutes()
+    //   return newsRoutes.map(name => `/news/${name}`)
+    // }
+    fallback: true
+  },
   /*
    ** Headers of the page
    */
