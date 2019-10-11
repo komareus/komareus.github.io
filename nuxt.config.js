@@ -57,6 +57,7 @@ export default {
   plugins: [
     { src: '~/plugins/breakpoint-fix.js', ssr: true },
     { src: '~/plugins/filters.js', ssr: true },
+    { src: '~/plugins/vueExpandableImage.js', ssr: false },
   ],
   /*
    ** Nuxt.js modules

@@ -9,16 +9,16 @@
       <template v-if="item.img">
         <v-container grid-list-lg fluid>
           <v-layout wrap>
-            <v-flex
+            <div
               v-for="(img, ix) in item.img"
               :key="ix"
             >
-              <img
+              <expandable-image
                 class="news-card__image"
                 :src="addImgUrl + img.src"
                 alt="img"
-              >
-            </v-flex>
+              />
+            </div>
           </v-layout>
         </v-container>
       </template>
@@ -70,11 +70,17 @@ export default {
     &__date {
       font-size: 0.8rem;
     }
-    &__image {
-      height: 140px;
-    }
-    img {
-      max-width: 100%;
+    /*&__image {*/
+      /*img{*/
+        /*height: 140px;*/
+      /*}*/
+    /*}*/
+    /deep/.expandable-image{
+      img{
+        height: 140px;
+        width: auto;
+        max-width: 100%;
+      }
     }
   }
 </style>

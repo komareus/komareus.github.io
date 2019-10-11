@@ -16,11 +16,19 @@
         :text="item.short"
       ></news-preview-card>
     </v-layout>
+    <v-layout v-if="statePagesTotal > 1" justify-center class="mt-4">
+      <v-pagination
+        v-model="page"
+        :length="statePagesTotal"
+        :total-visible="isMobile ? 5 : 8"
+        :disabled="getLoader"
+      ></v-pagination>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions, mapMutations } from 'vuex';
 import PageTitle from '~/components/shared/PageTitle'
 import NewsPreviewCard from '~/components/news/NewsPreviewCard'
 export default {
@@ -36,17 +44,28 @@ export default {
   //   }
   // },
   created() {
-    this.loadNewsList();
+    this.initNewsList();
   },
   methods: {
     ...mapActions({
       fetchNewsIndexList: 'news/fetchNewsIndexList',
       fetchNewsList: 'news/fetchNewsList',
     }),
-    async loadNewsList() {
+    ...mapMutations({
+      SET_PAGE: 'news/SET_NEWS_PAGE'
+    }),
+    async initNewsList() {
       try {
         await this.fetchNewsIndexList();
         await this.fetchNewsList();
+      } catch (err) {
+        console.error(err)
+      }
+    },
+    async loadPageNewsList(page) {
+      try {
+        await this.fetchNewsList(page);
+        this.$router.push({ query: { page: page } })
       } catch (err) {
         console.error(err)
       }
@@ -60,8 +79,21 @@ export default {
     ...mapGetters({
       stateNewsIndexList: 'news/getNewsIndexList',
       stateNewsList: 'news/getNewsList',
-      // getLoader: 'getLoader',
+      statePageSize: 'news/getPageSize',
+      statePagesTotal: 'news/getPagesTotal',
+      getLoader: 'getLoader',
     }),
+    page: {
+      get() {
+        return +this.$route.query.page || 1
+      },
+      set(page) {
+        this.loadPageNewsList(page)
+      }
+    },
+    isMobile() {
+      return this.$breakpoint.is('smAndDown')
+    },
   }
 }
 </script>

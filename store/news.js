@@ -7,12 +7,19 @@ export default {
     return {
       newsIndexList: [],
       newsList: [],
-      newsItem: {}
+      newsItem: {},
+      pageSize: 10
     }
   },
   mutations: {
     [types.SET_NEWS_INDEX_LIST](state, { data }) {
-      state.newsIndexList = data.map(item => item.name.split('.')[0])
+      const list = data.map(item => item.name.split('.')[0])
+      state.newsIndexList = list.sort((a, b) => {
+        console.log(a, b)
+        if (a > b) return -1;
+        if (a < b) return 1;
+        return 0;
+      })
     },
     [types.SET_NEWS_LIST](state, { newsList }) {
       state.newsList = newsList
@@ -47,11 +54,15 @@ export default {
         // commit(types.SET_LOADER, false, { root: true });
       }
     },
-    async fetchNewsList({ commit, state, getters }) {
-      const list = getters.getNewsIndexList;
+    async fetchNewsList({ commit, state, getters }, page = 1) {
+      const list = () => {
+        const start = state.pageSize * (page - 1);
+        const end = start + state.pageSize;
+        return state.newsIndexList.slice(start, end)
+      }
       try {
-        // commit(types.SET_LOADER, true, { root: true });
-        const fetchList = list.reduce((acc, item) => {
+        commit(types.SET_LOADER, true, { root: true });
+        const fetchList = list().reduce((acc, item) => {
           acc.push(this.$axios.$get(encodeURI(api.news.newsItem(item))))
           return acc
         }, [])
@@ -61,16 +72,17 @@ export default {
         })
         commit(types.SET_NEWS_LIST, { newsList: newsListMap })
       } catch (err) {
-        // commit(types.SET_DOCUMENTS, true, { root: true });
         throw err
       } finally {
-        // commit(types.SET_LOADER, false, { root: true });
+        commit(types.SET_LOADER, false, { root: true });
       }
     }
   },
   getters: {
-    getNewsIndexList: state => state.newsIndexList,
+    getNewsIndexList: ({ newsIndexList }) => newsIndexList,
     getNewsList: state => state.newsList,
     getNewsItem: state => state.newsItem,
+    getPageSize: ({ pageSize }) => pageSize,
+    getPagesTotal: ({ newsIndexList, pageSize }) => Math.ceil(newsIndexList.length / pageSize),
   }
 }
