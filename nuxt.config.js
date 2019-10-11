@@ -10,7 +10,7 @@ export default {
     //   const newsRoutes = await getDynamicRoutes()
     //   return newsRoutes.map(name => `/news/${name}`)
     // }
-    fallback: true
+    fallback: false
   },
   /*
    ** Headers of the page
