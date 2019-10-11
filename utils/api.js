@@ -1,7 +1,10 @@
 const contentBranch = 'master';
-const repositoryName = 'komareus';
-const listServerItems = `https://api.github.com/repos/${repositoryName}/${repositoryName}.github.io/contents/content`;
-const serverContentItems = `https://raw.githubusercontent.com/${repositoryName}/${repositoryName}.github.io/${contentBranch}/content`;
+const githubName = 'komareus';
+const repositorySiteName = 'komareus.github.io';
+const repositoryAdminName = 'investor182_admin';
+const listServerItems = `https://api.github.com/repos/${githubName}/${repositoryAdminName}/contents/content`;
+const serverContentItems = `https://raw.githubusercontent.com/${githubName}/${repositoryAdminName}/${contentBranch}/content`;
+const serverImageContentItems = `https://raw.githubusercontent.com/${githubName}/${repositoryAdminName}/${contentBranch}`;
 const adminUrl = 'https://investor182.netlify.com/admin/'
 
 const news = {
@@ -13,7 +16,10 @@ const news = {
 
 export default {
   news,
-  repositoryName,
+  githubName,
+  repositorySiteName,
+  repositoryAdminName,
+  serverImageContentItems,
   contentBranch,
   adminUrl
 }

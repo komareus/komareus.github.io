@@ -11,10 +11,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "cross-env NODE_ENV=development nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=master --cleanup",
-    "deploy2": "gh-pages -d dist -b master",
-    "deploy:temp": "rm -rf dist && npm run generate && cd dist && git init && git add . && git commit -m 'Initial commit' && git remote add origin https://github.com/komareus/komareus.github.io.git && git push --force origin master",
-    "deploy:test": "cd dist && git init && git add . && git commit -m 'Initial commit' && git remote add origin https://github.com/komareus/komareus.github.io.git && git push --force origin master"
+    "deploy": "push-dir --dir=dist --branch=master --cleanup"
   },
   "dependencies": {
     "@nuxt/common": "^2.3.4",
