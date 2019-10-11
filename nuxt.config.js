@@ -4,7 +4,7 @@ import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 // const colors = require('vuetify/es5/util/colors')
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   // generate: {
   //   async routes() {
   //     const newsRoutes = await getDynamicRoutes()

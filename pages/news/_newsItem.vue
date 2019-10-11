@@ -16,7 +16,8 @@ export default {
   name: 'NewsItem',
   components: { NewsCard },
   created() {
-    const itemName = this.$route.query.name;
+    // const itemName = this.$route.query.name;
+    const itemName = this.$route.params.newsItem;
     if (itemName) {
       this.fetchNewsItem(itemName)
     } else {

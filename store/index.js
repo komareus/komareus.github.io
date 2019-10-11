@@ -37,16 +37,16 @@ export default {
     //     console.error('getCurrency', err);
     //   }
     // },
-    async nuxtServerInit({ commit }, { store }) {
-      // try {
-      //   // await store.dispatch('authorizationAccessToken');
-      //   await Promise.all([
-      //     store.dispatch('getPeriods'),
-      //   ])
-      // } catch (err) {
-      //   console.error('INIT_ERR', err);
-      // }
-    }
+    // async nuxtServerInit({ commit }, { store }) {
+    //   // try {
+    //   //   // await store.dispatch('authorizationAccessToken');
+    //   //   await Promise.all([
+    //   //     store.dispatch('getPeriods'),
+    //   //   ])
+    //   // } catch (err) {
+    //   //   console.error('INIT_ERR', err);
+    //   // }
+    // }
   },
 
   getters: {

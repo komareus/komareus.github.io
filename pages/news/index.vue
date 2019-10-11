@@ -72,7 +72,8 @@ export default {
     },
     goToItem(name) {
       console.log(name)
-      this.$router.push({ name: 'news-item', query: { name: name } })
+      // this.$router.push({ name: 'news-item', query: { name: name } })
+      this.$router.push({ name: 'news-newsItem', params: { newsItem: name } })
     }
   },
   computed: {
