@@ -36,6 +36,11 @@
               </v-layout>
             </button>
           </div>
+          <div class="ml-3">
+            <a :href="fbLink" target="_blank">
+              <span v-html="icons.facebook" class="main-footer__fb-icon"></span>
+            </a>
+          </div>
         </v-layout>
       </v-card-text>
       <v-divider></v-divider>
@@ -45,7 +50,7 @@
             <a href="https://publicfinance.gov.ua/" target="_blank" class="main-footer__vpf-link pr-3">{{ $t('home.footer.opf') }}</a>
           </v-flex>-->
           <v-flex xs12 md6 class="text-md-right">
-            <span class="main-footer__minfin">© Веселі гуси, <span v-if="years > 2019">2019 -</span> {{ years }}</span>
+            <span class="main-footer__minfin">© investor182, <span v-if="years > 2019">2019 -</span> {{ years }}</span>
           </v-flex>
         </v-layout>
       </v-card-text>
@@ -54,12 +59,15 @@
 </template>
 
 <script>
+import icons from '~/assets/img/icons/index.js'
 export default {
   name: 'AFooter',
   data() {
     return {
-      hotLinePhone: '+380442066999',
-      hotLineMail: 'mail@gmail.com',
+      hotLinePhone: '+380442354882',
+      hotLineMail: 'oknashdom@gmail.com',
+      fbLink: 'https://www.facebook.com/groups/857280307967595',
+      icons
     }
   },
   methods: {
@@ -103,6 +111,15 @@ export default {
         /deep/.v-icon{
           animation: point 1.8s infinite linear both;
         }
+      }
+    }
+    &__fb-icon{
+      /*width: 20px;*/
+      /*height: 20px;*/
+      /deep/ svg {
+        width: 44px;
+        height: 44px;
+        fill: $c--primary;
       }
     }
     &__minfin{

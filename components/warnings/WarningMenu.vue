@@ -1,6 +1,6 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div class="warning-menu">
-    <v-menu offset-y left class="warning-menu__menu">
+    <v-menu v-if="list.length > 0" offset-y left class="warning-menu__menu">
       <button slot="activator" class="warning-menu__button error">
         Важливі повідомлення
       </button>
@@ -13,6 +13,7 @@
           class="compare-header-button__list-tile"
           v-for="(item, index) in list"
           :key="index"
+          @click="goToItem(item)"
         >
           <v-list-tile-content>
             <v-list-tile-title class="compare-header-button__list-tile-title">
@@ -22,6 +23,35 @@
         </v-list-tile>
       </v-list>
     </v-menu>
+    <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+      <v-card>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
+          {{ dialogData.title }}
+        </v-card-title>
+        <v-card-text>
+          <div v-html="$md.render(dialogData.text)"></div>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            flat
+            @click="dialog = false"
+          >
+            ЗАКРИТИ
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -32,6 +62,21 @@ export default {
     list: {
       type: Array,
       default: () => ([])
+    }
+  },
+  data() {
+    return {
+      dialog: false,
+      dialogData: {
+        text: '',
+        title: ''
+      }
+    }
+  },
+  methods: {
+    goToItem(item) {
+      this.dialogData = item;
+      this.dialog = true;
     }
   }
 }
@@ -51,6 +96,7 @@ export default {
     }
     &__list-tile{
       max-width: 400px;
+      cursor: pointer;
     }
     &__list-tile-title{
       font-size: 0.8rem!important;

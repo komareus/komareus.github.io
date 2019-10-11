@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import PageTitle from '~/components/shared/PageTitle'
 import NewsPreviewCard from '~/components/news/NewsPreviewCard'
 export default {
@@ -51,9 +51,6 @@ export default {
       fetchNewsIndexList: 'news/fetchNewsIndexList',
       fetchNewsList: 'news/fetchNewsList',
     }),
-    ...mapMutations({
-      SET_PAGE: 'news/SET_NEWS_PAGE'
-    }),
     async initNewsList() {
       try {
         await this.fetchNewsIndexList();
@@ -71,9 +68,8 @@ export default {
       }
     },
     goToItem(name) {
-      console.log(name)
-      // this.$router.push({ name: 'news-item', query: { name: name } })
-      this.$router.push({ name: 'news-newsItem', params: { newsItem: name } })
+      this.$router.push({ name: 'news-item', query: { name: name } })
+      // this.$router.push({ name: 'news-newsItem', params: { newsItem: name } })
     }
   },
   computed: {

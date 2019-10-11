@@ -3,6 +3,9 @@
     <page-title>
       Фото порталу
     </page-title>
+    <v-layout justify-center mt-4>
+      <h1>Сторінка в стадії розробки</h1>
+    </v-layout>
   </v-container>
 </template>
 

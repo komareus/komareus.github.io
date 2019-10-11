@@ -14,8 +14,16 @@ const news = {
   }
 }
 
+const warnings = {
+  indexList: listServerItems + '/warnings',
+  item(name) {
+    return `${serverContentItems}/warnings/${name}.json`
+  }
+}
+
 export default {
   news,
+  warnings,
   githubName,
   repositorySiteName,
   repositoryAdminName,

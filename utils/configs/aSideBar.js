@@ -3,12 +3,12 @@ export default function () {
     {
       // icon: icons.home,
       icon_material: 'home',
-      title: 'home',
+      title: 'Головна',
       to: { name: 'index' }
     },
     {
       icon_material: 'chrome_reader_mode',
-      title: 'news',
+      title: 'Новини',
       to: { name: 'news' }
     },
     // {

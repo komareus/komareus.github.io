@@ -23,6 +23,7 @@
           <v-layout>
             <warning-menu
               class="home-page__warning"
+              :list="stateWarningsList"
             ></warning-menu>
           </v-layout>
         </v-flex>
@@ -61,8 +62,9 @@
 </template>
 
 <script>
-import HomeCardsMenu from '~/components/home/HomeCardsMenu.vue'
-import WarningMenu from '~/components/warnings/WarningMenu'
+import HomeCardsMenu from '~/components/home/HomeCardsMenu.vue';
+import WarningMenu from '~/components/warnings/WarningMenu';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'HomeCard',
   components: {
@@ -78,6 +80,30 @@ export default {
     return {
       test: 'test2'
     }
+  },
+  created() {
+    this.initWarningsList();
+  },
+  methods: {
+    ...mapActions({
+      fetchWarningsIndexList: 'warnings/fetchWarningsIndexList',
+      fetchWarningsList: 'warnings/fetchWarningsList',
+    }),
+    async initWarningsList() {
+      try {
+        await this.fetchWarningsIndexList();
+        await this.fetchWarningsList();
+      } catch (err) {
+        console.error(err)
+      }
+    },
+  },
+  computed: {
+    ...mapGetters({
+      stateWarningsIndexList: 'warnings/getWarningsIndexList',
+      stateWarningsList: 'warnings/getWarningsList',
+      // getLoader: 'getLoader',
+    }),
   }
 }
 </script>
