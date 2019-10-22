@@ -4,7 +4,10 @@
       Документи
     </page-title>
     <v-layout justify-center mt-4>
-      <h1>Сторінка в стадії розробки</h1>
+      <!--<h1>Сторінка в стадії розробки</h1>-->
+      <documents-navigation-cards
+        :list="mainChapters"
+      ></documents-navigation-cards>
     </v-layout>
   </v-container>
 </template>
@@ -12,9 +15,44 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import PageTitle from '~/components/shared/PageTitle'
+import DocumentsNavigationCards from '../../components/documents/DocumentsNavigationCards'
 export default {
   name: 'documents',
-  components: { PageTitle },
+  components: { DocumentsNavigationCards, PageTitle },
+  data() {
+    return {
+      mainChapters: [
+        {
+          title: 'Правління',
+          child: [
+            { title: 'Статутні документи', link: 'statutory' },
+            { title: 'Договори', link: 'direction-agreements' },
+            { title: 'Листування', link: 'direction-letters' },
+          ],
+        },
+        {
+          title: 'Наглядова рада',
+          child: [
+            { title: 'Тест', link: 'supervisory' },
+            { title: 'Інформаційні листи', link: 'supervisory-letters' }
+          ],
+        },
+        {
+          title: 'Рев. ком.',
+          child: [
+            { title: 'Звіти', link: 'rev-reports' },
+            { title: 'Протоколи', link: 'rev-protocols' }
+          ],
+        },
+        {
+          title: 'Загальні документи',
+          child: [
+            { title: 'Різне', link: 'others' }
+          ],
+        }
+      ]
+    }
+  },
   // asyncData: async ({ app, $axios }) => {
   //   // console.log('payload', payload)
   //   let page = {};

@@ -3,7 +3,7 @@
     <v-parallax
       class="home-page__paralax px-0"
       src="img/home/paralax.jpg"
-      height="800"
+      height="900"
     >
       <v-layout
         class="home-page__label"
@@ -112,6 +112,8 @@ export default {
   .home-page {
     width: 100%;
     &__paralax{
+      /*padding-top: 30px;*/
+      padding-bottom: 60px;
       width: 100%;
     }
     &__paralax-title{
