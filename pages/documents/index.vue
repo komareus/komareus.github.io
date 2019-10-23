@@ -28,20 +28,24 @@ export default {
             { title: 'Статутні документи', link: 'statutory' },
             { title: 'Договори', link: 'direction-agreements' },
             { title: 'Листування', link: 'direction-letters' },
+            { title: 'Протоколи', link: 'direction-protocols' },
+            { title: 'Різне', link: 'direction-others' }
           ],
         },
         {
           title: 'Наглядова рада',
           child: [
-            { title: 'Тест', link: 'supervisory' },
-            { title: 'Інформаційні листи', link: 'supervisory-letters' }
+            { title: 'Протоколи', link: 'supervisory' },
+            { title: 'Інформаційні листи', link: 'supervisory-letters' },
+            { title: 'Різне', link: 'supervisory-others' }
           ],
         },
         {
-          title: 'Рев. ком.',
+          title: 'Ревізійна комісія',
           child: [
-            { title: 'Звіти', link: 'rev-reports' },
-            { title: 'Протоколи', link: 'rev-protocols' }
+            { title: 'Звіти', link: 'revision-reports' },
+            { title: 'Протоколи', link: 'revision-protocols' },
+            { title: 'Різне', link: 'revision-others' }
           ],
         },
         {
