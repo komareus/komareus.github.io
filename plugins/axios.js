@@ -1,4 +1,11 @@
 export default function ({ $axios, redirect, store, res, req, route }) {
+  // $axios.setHeader('Content-Type', 'application/x-www-form-urlencoded');
+  $axios.setHeader('Content-Type', 'application/json');
+  $axios.setHeader('Accept', 'application/json');
+  // $axios.setHeader('Access-Control-Allow-Origin', '*');
+  // $axios.setHeader("Access-Control-Allow-Origin", "*");
+  // $axios.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  // $axios.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   $axios.onRequest((config) => {
     // console.log('Making request to ' + config.url)
     // console.log('baseURL ' + $axios.baseURL)
@@ -11,8 +18,8 @@ export default function ({ $axios, redirect, store, res, req, route }) {
     //   console.log('process.env.' + i + ': ', process.env[i])
     // }
     // console.log('config!!!!!', config)
-    config.headers.common['Accept'] = `application/json, text/plain`
-    config.headers.common['Content-Type'] = `application/json`
+    // config.headers.common['Accept'] = `application/json, text/plain`
+    // config.headers.common['Content-Type'] = `application/json`
   });
   // $axios.onResponse( (config) => {
   //   if (process.browser && config.status === 401) {

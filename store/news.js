@@ -32,6 +32,7 @@ export default {
       try {
         // commit(types.SET_LOADER, true, { root: true });
         const data = await this.$axios.$get(encodeURI(api.news.newsIndexList));
+        // const data = await this.$axios.$get(api.news.newsIndexList);
         commit(types.SET_NEWS_INDEX_LIST, { data })
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
@@ -44,7 +45,8 @@ export default {
       commit(types.SET_NEWS_ITEM, { data: {} })
       try {
         // commit(types.SET_LOADER, true, { root: true });
-        const data = await this.$axios.$get(encodeURI(api.news.newsItem(name)));
+        // const data = await this.$axios.$get(encodeURI(api.news.newsItem(name)));
+        const data = await this.$axios.$get(api.news.newsItem(name));
         commit(types.SET_NEWS_ITEM, { data })
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
@@ -63,6 +65,7 @@ export default {
         commit(types.SET_LOADER, true, { root: true });
         const fetchList = list().reduce((acc, item) => {
           acc.push(this.$axios.$get(encodeURI(api.news.newsItem(item))))
+          // acc.push(this.$axios.$get(api.news.newsItem(item)))
           return acc
         }, [])
         const newsList = await Promise.all(fetchList);
