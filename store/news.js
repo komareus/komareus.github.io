@@ -1,5 +1,7 @@
-import types from '~/store/mutation-types'
-import api from '~/utils/api'
+import types from '~/store/mutation-types';
+import api from '~/utils/api';
+import { Base64 } from 'js-base64';
+const base64Parser = string => JSON.parse(Base64.decode(string.content));
 
 export default {
   namespaced: true,
@@ -21,10 +23,12 @@ export default {
       })
     },
     [types.SET_NEWS_LIST](state, { newsList }) {
-      state.newsList = newsList
+      state.newsList = newsList.map(item => ({ ...base64Parser(item), name: item.name }))
     },
-    [types.SET_NEWS_ITEM](state, { data }) {
-      state.newsItem = data
+    [types.SET_NEWS_ITEM](state, data) {
+      if (data && data.content) {
+        state.newsItem = base64Parser(data)
+      }
     },
   },
   actions: {
@@ -32,7 +36,6 @@ export default {
       try {
         // commit(types.SET_LOADER, true, { root: true });
         const data = await this.$axios.$get(encodeURI(api.news.newsIndexList));
-        // const data = await this.$axios.$get(api.news.newsIndexList);
         commit(types.SET_NEWS_INDEX_LIST, { data })
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
@@ -45,9 +48,8 @@ export default {
       commit(types.SET_NEWS_ITEM, { data: {} })
       try {
         // commit(types.SET_LOADER, true, { root: true });
-        // const data = await this.$axios.$get(encodeURI(api.news.newsItem(name)));
-        const data = await this.$axios.$get(api.news.newsItem(name));
-        commit(types.SET_NEWS_ITEM, { data })
+        const data = await this.$axios.$get(encodeURI(api.news.newsItem(name)));
+        commit(types.SET_NEWS_ITEM, data)
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
         throw err
@@ -65,7 +67,6 @@ export default {
         commit(types.SET_LOADER, true, { root: true });
         const fetchList = list().reduce((acc, item) => {
           acc.push(this.$axios.$get(encodeURI(api.news.newsItem(item))))
-          // acc.push(this.$axios.$get(api.news.newsItem(item)))
           return acc
         }, [])
         const newsList = await Promise.all(fetchList);

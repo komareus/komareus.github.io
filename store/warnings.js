@@ -1,5 +1,7 @@
-import types from '~/store/mutation-types'
-import api from '~/utils/api'
+import types from '~/store/mutation-types';
+import api from '~/utils/api';
+import { Base64 } from 'js-base64';
+const base64Parser = string => JSON.parse(Base64.decode(string.content));
 
 export default {
   namespaced: true,
@@ -20,10 +22,13 @@ export default {
       })
     },
     [types.SET_WARNINGS_LIST](state, itemsList) {
-      state.itemsList = itemsList.filter(item => item.active)
+      const fullList = itemsList.map(item => ({ ...base64Parser(item), name: item.name }))
+      state.itemsList = fullList.filter(item => item.active)
     },
-    [types.SET_WARNINGS_ITEM](state, { data }) {
-      state.item = data
+    [types.SET_WARNINGS_ITEM](state, data) {
+      if (data && data.content) {
+        state.item = base64Parser(data)
+      }
     },
   },
   actions: {
@@ -44,7 +49,7 @@ export default {
       try {
         // commit(types.SET_LOADER, true, { root: true });
         const data = await this.$axios.$get(encodeURI(api.warnings.item(name)));
-        commit(types.SET_WARNINGS_ITEM, { data })
+        commit(types.SET_WARNINGS_ITEM, data)
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
         throw err

@@ -2,7 +2,8 @@ export default function ({ $axios, redirect, store, res, req, route }) {
   // $axios.setHeader('Content-Type', 'application/x-www-form-urlencoded');
   $axios.setHeader('Content-Type', 'application/json');
   $axios.setHeader('Accept', 'application/json');
-  // $axios.setHeader('Access-Control-Allow-Origin', '*');
+  // $axios.setHeader('Origin', 'https://raw.githubusercontent.com');
+  // $axios.setHeader('Access-Control-Allow-Origin', 'https://raw.githubusercontent.com');
   // $axios.setHeader("Access-Control-Allow-Origin", "*");
   // $axios.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   // $axios.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
