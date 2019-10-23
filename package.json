@@ -10,7 +10,7 @@
     "dev": "cross-env NODE_ENV=development nuxt",
     "build": "cross-env NODE_ENV=production nuxt build",
     "start": "nuxt start",
-    "generate": "cross-env NODE_ENV=production nuxt generate --hostname komareus.github.io --port '0'",
+    "generate": "cross-env NODE_ENV=production nuxt generate",
     "deploy": "push-dir --dir=dist --branch=master --cleanup"
   },
   "dependencies": {

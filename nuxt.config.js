@@ -68,7 +68,7 @@ export default {
     '@nuxtjs/vuetify',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    // '@nuxtjs/proxy',
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
@@ -80,17 +80,17 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  proxy: {
-    '/content-items/': {
-      target: api.serverContentItems,
-      pathRewrite: { '^/content-items': '' }
-    },
-    '/content-list/': {
-      target: api.listServerItems,
-      pathRewrite: { '^/content-list': '' }
-    },
-    // logLevel: 'debug'
-  },
+  // proxy: {
+  //   '/content-items/': {
+  //     target: api.serverContentItems,
+  //     pathRewrite: { '^/content-items': '' }
+  //   },
+  //   '/content-list/': {
+  //     target: api.listServerItems,
+  //     pathRewrite: { '^/content-list': '' }
+  //   },
+  //   // logLevel: 'debug'
+  // },
   markdownit: {
     injected: true
   },
