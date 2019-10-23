@@ -4,7 +4,8 @@ const repositorySiteName = 'komareus.github.io';
 const repositoryAdminName = 'investor182_admin';
 const listServerItems = `https://api.github.com/repos/${githubName}/${repositoryAdminName}/contents/content`;
 const serverContentItems = `https://raw.githubusercontent.com/${githubName}/${repositoryAdminName}/${contentBranch}/content`;
-const serverImageContentItems = `https://raw.githubusercontent.com/${githubName}/${repositoryAdminName}/${contentBranch}`;
+// const serverImageContentItems = `https://raw.githubusercontent.com/${githubName}/${repositoryAdminName}/${contentBranch}`;
+const serverImageContentItems = `https://github.com/${githubName}/${repositoryAdminName}/raw/master/content/`;
 const adminUrl = 'https://investor182.netlify.com/admin/'
 
 const news = {
