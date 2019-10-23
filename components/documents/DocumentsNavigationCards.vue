@@ -7,11 +7,11 @@
     >
       <template v-slot:activator="{ on }">
         <v-card
-          class="documents-navigation-cards__card mb-3"
+          class="documents-navigation-cards__card mb-3 primary"
           v-ripple
           v-on="on"
         >
-          <v-card-title primary-title class="primary--text title">
+          <v-card-title primary-title class="white--text title">
             {{ card.title }}
           </v-card-title>
         </v-card>
@@ -20,7 +20,7 @@
         <v-list-tile
           v-for="(item, index) in card.child"
           :key="index"
-          @click="goToChapter"
+          @click="goToChapter(item.link)"
         >
           <v-list-tile-title>{{ item.title }}</v-list-tile-title>
         </v-list-tile>
@@ -39,8 +39,10 @@ export default {
     }
   },
   methods: {
-    goToChapter() {
-
+    goToChapter(chapter) {
+      if (chapter) {
+        this.$router.push({ name: 'documents-chapter', params: { chapter: chapter } })
+      }
     }
   }
 }

@@ -2,6 +2,7 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 // import getDynamicRoutes from './utils/getDynamicRoutes.js'
 // const colors = require('vuetify/es5/util/colors')
+import api from './utils/api'
 
 export default {
   mode: 'spa',
@@ -67,6 +68,7 @@ export default {
     '@nuxtjs/vuetify',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     '@nuxtjs/pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/style-resources',
@@ -78,16 +80,17 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  // proxy: {
-  //   // '/contents/': {
-  //   //   target: 'https://api.github.com/repos/bestkolobok/bestkolobok.github.io/',
-  //   //   // pathRewrite: { '^/contents': '' }
-  //   // },
-  //   // '/master/': {
-  //   //   target: 'https://raw.githubusercontent.com/bestkolobok/bestkolobok.github.io/',
-  //   // },
-  //   // logLevel: 'debug'
-  // },
+  proxy: {
+    '/content-items/': {
+      target: api.serverContentItems,
+      pathRewrite: { '^/content-items': '' }
+    },
+    '/content-list/': {
+      target: api.listServerItems,
+      pathRewrite: { '^/content-list': '' }
+    },
+    // logLevel: 'debug'
+  },
   markdownit: {
     injected: true
   },

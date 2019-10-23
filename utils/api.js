@@ -8,16 +8,20 @@ const serverImageContentItems = `https://raw.githubusercontent.com/${githubName}
 const adminUrl = 'https://investor182.netlify.com/admin/'
 
 const news = {
-  newsIndexList: listServerItems + '/news',
+  // newsIndexList: listServerItems + '/news',
+  newsIndexList: '/content-list/news',
   newsItem(name) {
-    return `${serverContentItems}/news/${name}.json`
+    // return `${serverContentItems}/news/${name}.json`
+    return `/content-items/news/${name}.json`
   }
 }
 
 const warnings = {
-  indexList: listServerItems + '/warnings',
+  // indexList: listServerItems + '/warnings',
+  indexList: '/content-list/warnings',
   item(name) {
-    return `${serverContentItems}/warnings/${name}.json`
+    // return `${serverContentItems}/warnings/${name}.json`
+    return `/content-items/warnings/${name}.json`
   }
 }
 
@@ -29,5 +33,7 @@ export default {
   repositoryAdminName,
   serverImageContentItems,
   contentBranch,
-  adminUrl
+  adminUrl,
+  listServerItems,
+  serverContentItems
 }
