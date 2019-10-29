@@ -15,7 +15,7 @@
             >
               <expandable-image
                 class="news-card__image"
-                :src="addImgUrl + img.src"
+                :src="img.src"
                 alt="img"
               />
             </div>
