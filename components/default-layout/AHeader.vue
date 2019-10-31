@@ -16,13 +16,14 @@
         <v-container py-0>
           <v-layout>
             <v-spacer v-if="!isMobile"></v-spacer>
-            <a :href="adminUrl" target="_blank">
-              <button class="main-toolbar__log-in primary--text" v-ripple>
+            <admin-menu></admin-menu>
+            <!--<a :href="adminUrl" target="_blank">
+              <button class="main-toolbar__log-in primary&#45;&#45;text" v-ripple>
                 <v-icon color="primary">
                   input
                 </v-icon> Службовий вхід
               </button>
-            </a>
+            </a>-->
             <v-spacer v-if="isMobile"></v-spacer>
           </v-layout>
         </v-container>
@@ -65,9 +66,10 @@ import { mapGetters } from 'vuex';
 import NavBar from '~/components/shared/ANavBar';
 import config from '~/utils/configs/mainMenu.js';
 import api from '~/utils/api'
+import AdminMenu from '../admin/AdminMenu'
 export default {
   name: 'AHeader',
-  components: { NavBar },
+  components: { AdminMenu, NavBar },
   props: {
     value: {
       type: Boolean,
