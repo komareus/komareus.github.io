@@ -17,6 +17,15 @@ const news = {
   }
 }
 
+const documents = {
+  indexList(chapter) {
+    return `${listServerItems}/documents/${chapter}`
+  },
+  documentItem({ chapter, item }) {
+    return `${serverContentItems}/documents/${chapter}/${item}.json`
+  }
+}
+
 const warnings = {
   indexList: listServerItems + '/warnings',
   item(name) {
@@ -26,6 +35,7 @@ const warnings = {
 
 export default {
   news,
+  documents,
   warnings,
   githubName,
   repositorySiteName,

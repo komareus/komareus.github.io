@@ -15,7 +15,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import PageTitle from '~/components/shared/PageTitle'
-import DocumentsNavigationCards from '../../components/documents/DocumentsNavigationCards'
+import DocumentsNavigationCards from '~/components/documents/DocumentsNavigationCards'
+import chapters from '~/utils/configs/documentsChapters.js'
 export default {
   name: 'documents',
   components: { DocumentsNavigationCards, PageTitle },
@@ -25,33 +26,33 @@ export default {
         {
           title: 'Правління',
           child: [
-            { title: 'Статутні документи', link: 'direction-statutory' },
-            { title: 'Договори', link: 'direction-agreements' },
-            { title: 'Листування', link: 'direction-letters' },
-            { title: 'Протоколи', link: 'direction-protocols' },
-            { title: 'Різне', link: 'direction-others' }
+            chapters['directors-statutory'],
+            chapters['directors-agreements'],
+            chapters['directors-letters'],
+            chapters['directors-protocols'],
+            chapters['directors-other']
           ],
         },
         {
           title: 'Наглядова рада',
           child: [
-            { title: 'Протоколи', link: 'supervisory-protocols' },
-            { title: 'Інформаційні листи', link: 'supervisory-letters' },
-            { title: 'Різне', link: 'supervisory-others' }
+            chapters['supervisory-protocols'],
+            chapters['supervisory-letters'],
+            chapters['supervisory-other']
           ],
         },
         {
           title: 'Ревізійна комісія',
           child: [
-            { title: 'Звіти', link: 'revision-reports' },
-            { title: 'Протоколи', link: 'revision-protocols' },
-            { title: 'Різне', link: 'revision-others' }
+            chapters['revision-reports'],
+            chapters['revision-protocols'],
+            chapters['revision-other']
           ],
         },
         {
           title: 'Загальні документи',
           child: [
-            { title: 'Різне', link: 'others' }
+            chapters['other']
           ],
         }
       ]
@@ -96,7 +97,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      stateDocuments: 'documents/getDocuments',
+      // stateDocuments: 'documents/getDocuments',
       // getLoader: 'getLoader',
     }),
   }

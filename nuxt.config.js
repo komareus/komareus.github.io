@@ -2,15 +2,17 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 // import getDynamicRoutes from './utils/getDynamicRoutes.js'
 // const colors = require('vuetify/es5/util/colors')
-import api from './utils/api'
+// import api from './utils/api'
+import chapters from './utils/configs/documentsChapters.js'
 
 export default {
   mode: 'spa',
   generate: {
+    routes: Object.keys(chapters).map(key => `/documents/${chapters[key].link}`),
     // async routes() {
     //   const newsRoutes = await getDynamicRoutes()
     //   return newsRoutes.map(name => `/news/${name}`)
-    // }
+    // },
     fallback: false
   },
   /*
