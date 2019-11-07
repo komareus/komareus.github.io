@@ -28,8 +28,8 @@ export default {
       links: [
         { title: 'Загальне', link: 'https://investor182.netlify.com/admin' },
         { title: 'Правління', link: 'https://investor182.netlify.com/admin-directors' },
-        { title: 'Наглядова рада', link: 'https://investor182.netlify.com/admin-revision' },
-        { title: 'Ревізійна комісія', link: 'https://investor182.netlify.com/admin-supervisory' }
+        { title: 'Наглядова рада', link: 'https://investor182.netlify.com/admin-supervisory' },
+        { title: 'Ревізійна комісія', link: 'https://investor182.netlify.com/admin-revision' }
       ]
     }
   }

@@ -25,7 +25,7 @@ export default {
         {
           title: 'Правління',
           child: [
-            { title: 'Статутні документи', link: 'statutory' },
+            { title: 'Статутні документи', link: 'direction-statutory' },
             { title: 'Договори', link: 'direction-agreements' },
             { title: 'Листування', link: 'direction-letters' },
             { title: 'Протоколи', link: 'direction-protocols' },
@@ -35,7 +35,7 @@ export default {
         {
           title: 'Наглядова рада',
           child: [
-            { title: 'Протоколи', link: 'supervisory' },
+            { title: 'Протоколи', link: 'supervisory-protocols' },
             { title: 'Інформаційні листи', link: 'supervisory-letters' },
             { title: 'Різне', link: 'supervisory-others' }
           ],
