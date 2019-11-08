@@ -2,10 +2,11 @@
   <v-container class="documents-chapter">
     <page-title>
       {{ chapterName }}
+      <template slot="caption">
+        {{ chapterTitle }}
+      </template>
     </page-title>
-    <h3 class="documents-chapter__title primary--text">
-      {{ chapterTitle }}
-    </h3>
+
     <v-layout
       v-for="(item, i) in documentsList"
       :key="i"
@@ -17,6 +18,15 @@
         :title="item.title"
         :date="item.date"
       />
+    </v-layout>
+
+    <v-layout v-if="pagesTotal > 1" justify-center class="mt-4">
+      <v-pagination
+        v-model="page"
+        :length="pagesTotal"
+        :total-visible="isMobile ? 5 : 8"
+        :disabled="getLoader"
+      ></v-pagination>
     </v-layout>
   </v-container>
 </template>
@@ -51,9 +61,9 @@ export default {
         console.error(err)
       }
     },
-    async loadPageNewsList(page) {
+    async loadPageList(page) {
       try {
-        await this.fetchNewsList(page);
+        await this.fetchDocumentsList({ chapter: this.chapter, page });
         this.$router.push({ query: { page: page } })
       } catch (err) {
         console.error(err)
@@ -87,17 +97,21 @@ export default {
     chapterTitle() {
       const title = this.chapters[this.chapter]
       return title ? title.title : ''
-    }
+    },
+    page: {
+      get() {
+        return +this.$route.query.page || 1
+      },
+      set(page) {
+        this.loadPageList(page)
+      }
+    },
   }
 }
 </script>
 
 <style scoped lang="scss">
   .documents-chapter{
-    &__title{
-      margin-top: -40px;
-      margin-bottom: 40px;
-    }
     &__card {
       cursor: pointer;
     }

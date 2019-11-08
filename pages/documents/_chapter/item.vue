@@ -1,27 +1,47 @@
 <template>
-  <v-container class="news-item">
-    <!--<news-card
-      class="news-item__card"
-      :title="stateNewsItem.title"
-      :date="stateNewsItem.date"
-      :content="stateNewsItem.body"
-    ></news-card>-->
+  <v-container class="document-item">
+    <page-title>
+      {{ stateDocumentsItem.title }}
+      <template slot="caption">
+        {{ stateDocumentsItem.date | FormatDateTime }}
+      </template>
+    </page-title>
+    <v-layout v-if="stateDocumentsItem.description" class="document-item__caption primary--text">
+      <p class="ma-0">
+        {{ stateDocumentsItem.description }}
+      </p>
+    </v-layout>
+    <!--<template v-if="item.img">
+      <v-container grid-list-lg fluid>
+        <v-layout wrap>
+          <div
+            v-for="(img, ix) in item.img"
+            :key="ix"
+          >
+            <expandable-image
+              class="news-card__image"
+              :src="img.src"
+              alt="img"
+            />
+          </div>
+        </v-layout>
+      </v-container>
+    </template>-->
   </v-container>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import NewsCard from '~/components/news/NewsCard'
+import PageTitle from '~/components/shared/PageTitle'
 export default {
   name: 'DocumentItem',
-  components: { NewsCard },
+  components: { PageTitle },
   created() {
     const itemName = this.$route.query.name;
-    // const itemName = this.$route.params.newsItem;
     if (itemName) {
       this.getDocumentItem(itemName)
     } else {
-      // this.$router.push({ name: 'news' })
+      this.$router.push({ name: 'documents' })
     }
   },
   methods: {
@@ -44,7 +64,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .news-item {
+  .document-item {
+    &__caption{
+      padding: 16px;
+      border: 1px solid $c--general-border;
+      border-radius: 6px;
+    }
     &__card {
       min-height: 90%;
     }

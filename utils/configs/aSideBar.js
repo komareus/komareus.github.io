@@ -11,6 +11,11 @@ export default function () {
       title: 'Новини',
       to: { name: 'news' }
     },
+    {
+      icon_material: 'chrome_reader_mode',
+      title: 'Документи',
+      to: { name: 'documents' }
+    },
     // {
     //   icon_material: 'search',
     //   title: 'disposersSearch',
