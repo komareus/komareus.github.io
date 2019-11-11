@@ -7,18 +7,25 @@
       </template>
     </page-title>
 
-    <v-layout
-      v-for="(item, i) in documentsList"
-      :key="i"
-      class="mb-3"
-      @click="goToItem(item.name)"
-    >
-      <documents-preview-card
-        class="documents-chapter__card"
-        :title="item.title"
-        :date="item.date"
-      />
-    </v-layout>
+    <template v-if="documentsList.length > 0">
+      <v-layout
+        v-for="(item, i) in documentsList"
+        :key="i"
+        class="mb-3"
+        @click="goToItem(item.name)"
+      >
+        <documents-preview-card
+          class="documents-chapter__card"
+          :title="item.title"
+          :date="item.date"
+        />
+      </v-layout>
+    </template>
+    <template v-else>
+      <p class="documents-chapter__no-items primary--text title">
+        ...Немає документів для відображення
+      </p>
+    </template>
 
     <v-layout v-if="pagesTotal > 1" justify-center class="mt-4">
       <v-pagination

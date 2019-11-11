@@ -36,14 +36,14 @@ export default {
   actions: {
     async fetchDocumentsIndexList({ commit }, chapter) {
       try {
-        // commit(types.SET_LOADER, true, { root: true });
+        commit(types.SET_LOADER, true, { root: true });
         const data = await this.$axios.$get(encodeURI(api.documents.indexList(chapter)));
         commit(types.SET_INDEX_LIST, { chapter, data })
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
         throw err
       } finally {
-        // commit(types.SET_LOADER, false, { root: true });
+        commit(types.SET_LOADER, false, { root: true });
       }
     },
     async fetchDocumentsList({ commit, state, getters }, { chapter, page = 1 }) {
@@ -72,14 +72,14 @@ export default {
     async fetchDocumentItem({ commit, state, getters }, { chapter, item }) {
       commit(types.SET_DOCUMENT, { data: {} })
       try {
-        // commit(types.SET_LOADER, true, { root: true });
+        commit(types.SET_LOADER, true, { root: true });
         const data = await this.$axios.$get(encodeURI(api.documents.documentItem({ chapter, item })));
         commit(types.SET_DOCUMENT, data)
       } catch (err) {
         // commit(types.SET_DOCUMENTS, true, { root: true });
         throw err
       } finally {
-        // commit(types.SET_LOADER, false, { root: true });
+        commit(types.SET_LOADER, false, { root: true });
       }
     },
   },

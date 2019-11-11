@@ -22,13 +22,13 @@ export default function ({ isLogIn = false, section = 'public' }) {
       homeCard: true,
       imgSrc: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
     },
-    {
-      icon: 'home',
-      title: 'ФОТО',
-      to: { name: 'foto' },
-      show: section === 'public',
-      homeCard: true,
-      imgSrc: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
-    },
+    // {
+    //   icon: 'home',
+    //   title: 'ФОТО',
+    //   to: { name: 'foto' },
+    //   show: section === 'public',
+    //   homeCard: true,
+    //   imgSrc: 'https://cdn.vuetifyjs.com/images/cards/house.jpg'
+    // },
   ]
 }
