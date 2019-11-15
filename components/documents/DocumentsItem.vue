@@ -1,9 +1,9 @@
 <template>
-  <section class="news-card pa-3 white">
-    <h3 class="news-card__title mb-1">
+  <section class="documents-item pa-3 white">
+    <h3 class="documents-item__title mb-1">
       {{ title }}
     </h3>
-    <span class="news-card__date">{{ date }}</span>
+    <span class="documents-item__date">{{ date }}</span>
     <v-layout column v-for="(item, i) in content" :key="i">
       <div class="mt-3" v-html="$md.render(item.body)"></div>
       <template v-if="item.img">
@@ -14,7 +14,7 @@
               :key="ix"
             >
               <expandable-image
-                class="news-card__image"
+                class="documents-item__image"
                 :src="img.src"
                 alt="img"
               />
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .news-card {
+  .documents-item {
     min-height: 90%;
     width: 100%;
     border: 1px solid $c--general-border;

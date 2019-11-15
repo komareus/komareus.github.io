@@ -1,5 +1,8 @@
 <template>
-  <v-container class="document-item">
+  <v-container
+    class="document-item white"
+    :class="{ 'mt-3': $breakpoint.is('xsOnly'), 'mt-5': !$breakpoint.is('xsOnly') }"
+  >
     <page-title>
       {{ stateDocumentsItem.title }}
       <template slot="caption">
@@ -15,7 +18,7 @@
       <v-container grid-list-lg fluid pa-0>
         <v-layout wrap>
           <v-flex
-            xs12 sm6 md3 lg2 xl1
+            xs12 sm6 md3 lg2
             v-for="(img, ix) in imagesList"
             :key="ix"
           >
@@ -95,6 +98,7 @@ export default {
 
 <style scoped lang="scss">
   .document-item {
+    border-radius: 10px;
     &__caption{
       padding: 16px;
       border: 1px solid $c--general-border;
