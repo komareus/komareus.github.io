@@ -91,12 +91,12 @@ export default {
     }
     &__tab{
       margin-left: 30px;
-      /deep/a{
+      ::v-deep a{
         padding-right: 0;
         padding-left: 0;
       }
     }
-    /deep/.v-tabs__bar{
+    ::v-deep .v-tabs__bar{
       background: none;
     }
   }

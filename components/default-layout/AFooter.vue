@@ -97,7 +97,7 @@ export default {
         a{
           color: $c--general-orange!important;
         }
-        /deep/.v-icon{
+        ::v-deep .v-icon{
           animation: swing .8s infinite linear both;
         }
       }
@@ -108,7 +108,7 @@ export default {
       transition: color 0.2s ease-in-out;
       &:hover{
         color: $c--general-orange!important;
-        /deep/.v-icon{
+        ::v-deep.v-icon{
           animation: point 1.8s infinite linear both;
         }
       }
@@ -116,7 +116,7 @@ export default {
     &__fb-icon{
       /*width: 20px;*/
       /*height: 20px;*/
-      /deep/ svg {
+      ::v-deep svg {
         width: 44px;
         height: 44px;
         fill: $c--primary;

@@ -1,6 +1,6 @@
+import { Base64 } from 'js-base64';
 import types from '~/store/mutation-types';
 import api from '~/utils/api';
-import { Base64 } from 'js-base64';
 const base64Parser = string => JSON.parse(Base64.decode(string.content));
 
 export default {

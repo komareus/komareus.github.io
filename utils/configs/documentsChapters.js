@@ -10,5 +10,5 @@ export default {
   'revision-reports': { chapter: 'Ревізійна комісія', title: 'Звіти', link: 'revision-reports' },
   'revision-protocols': { chapter: 'Ревізійна комісія', title: 'Протоколи', link: 'revision-protocols' },
   'revision-other': { chapter: 'Ревізійна комісія', title: 'Різне', link: 'revision-other' },
-  'other': { chapter: 'Загальні документи', title: 'Різне', link: 'other' }
+  other: { chapter: 'Загальні документи', title: 'Різне', link: 'other' }
 }

@@ -66,7 +66,7 @@ import { mapGetters } from 'vuex';
 import NavBar from '~/components/shared/ANavBar';
 import config from '~/utils/configs/mainMenu.js';
 import api from '~/utils/api'
-import AdminMenu from '../admin/AdminMenu'
+import AdminMenu from '~/components/admin/AdminMenu'
 export default {
   name: 'AHeader',
   components: { AdminMenu, NavBar },

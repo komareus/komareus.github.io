@@ -203,7 +203,7 @@ export default {
     height: 22px;
     color: $c--white;
 
-    /deep/ svg path {
+    ::v-deep svg path {
       fill: white;
     }
   }
@@ -212,7 +212,7 @@ export default {
     color: $c--general-orange;
 
     .sidebar-icon {
-      /deep/ svg path {
+      ::v-deep svg path {
         fill: orange;
       }
     }

@@ -39,9 +39,9 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import HomeCardsMenu from '~/components/home/HomeCardsMenu.vue';
 import WarningMenu from '~/components/warnings/WarningMenu';
-import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'HomeCard',
   components: {

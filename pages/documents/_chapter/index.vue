@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import PageTitle from '~/components/shared/PageTitle'
 import { mapGetters, mapActions } from 'vuex';
+import PageTitle from '~/components/shared/PageTitle'
 import chapters from '~/utils/configs/documentsChapters.js'
 import DocumentsPreviewCard from '~/components/documents/DocumentsPreviewCard'
 export default {

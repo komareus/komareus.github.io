@@ -33,11 +33,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import AFooter from '~/components/default-layout/AFooter'
 // import AEntrance from '~/components/default-layout/AEntrance'
 import ASideBar from '~/components/default-layout/ASideBar'
 import AHeader from '~/components/default-layout/AHeader'
-import { mapGetters } from 'vuex';
 // import PopUp from '~/components/shared/popup/PopUp'
 export default {
   components: {

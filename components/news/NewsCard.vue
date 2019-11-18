@@ -75,7 +75,7 @@ export default {
         /*height: 140px;*/
       /*}*/
     /*}*/
-    /deep/.expandable-image{
+    ::v-deep .expandable-image{
       img{
         height: 140px;
         width: auto;

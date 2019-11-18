@@ -15,18 +15,26 @@
       </p>
     </v-layout>
     <template v-if="imagesList.length > 0">
-      <v-container grid-list-lg fluid pa-0>
+      <v-container grid-list-md fluid pa-0>
         <v-layout wrap>
           <v-flex
-            xs12 sm6 md3 lg2
+            xs12 sm6 md4 lg3
             v-for="(img, ix) in imagesList"
             :key="ix"
           >
-            <expandable-image
+            <div class="document-item__item pa-2">
+              <v-img
+                :src="img"
+                :alt="'document_' + ix"
+                aspect-ratio="1.7"
+                @click.stop="openImg(ix)"
+              ></v-img>
+            </div>
+            <!--<expandable-image
               class="document-item__image"
               :src="img"
               :alt="'document_' + ix"
-            />
+            />-->
           </v-flex>
         </v-layout>
       </v-container>
@@ -45,15 +53,26 @@
     <v-layout v-if="fileLink">
       <a class="document-item__link primary--text title" :href="fileLink" target="_blank">Посилання на документ</a>
     </v-layout>
+    <a-carousel
+      :items="imagesList"
+      v-model="dialog"
+    ></a-carousel>
   </v-container>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import PageTitle from '~/components/shared/PageTitle'
+import ACarousel from '~/components/shared/ACarousel'
 export default {
   name: 'DocumentItem',
-  components: { PageTitle },
+  components: { ACarousel, PageTitle },
+  data() {
+    return {
+      // dialog: null,
+      carousel: 0
+    }
+  },
   created() {
     const itemName = this.$route.query.name;
     if (itemName) {
@@ -75,11 +94,27 @@ export default {
       document.body.appendChild(link);
       link.click()
     },
+    openImg(id) {
+      this.dialog = id
+      // this.carousel = id;
+      // this.$nextTick(() => {
+      //   this.dialog = true
+      // })
+    }
   },
   computed: {
     ...mapGetters({
       stateDocumentsItem: 'documents/getDocumentsItem'
     }),
+    dialog: {
+      get() {
+        return this.$route.query.item || this.$route.query.item === 0 ? this.$route.query.item : null;
+      },
+      set(val) {
+        const item = val || val === 0 ? val : undefined;
+        this.$router.push({ query: { ...this.$route.query, item } })
+      }
+    },
     chapter() {
       return this.$route.params.chapter
     },
@@ -111,6 +146,11 @@ export default {
       &:hover{
         text-decoration: underline;
       }
+    }
+    &__item{
+      border: 1px solid $c--general-border;
+      border-radius: 6px;
+      overflow: hidden;
     }
   }
 </style>
