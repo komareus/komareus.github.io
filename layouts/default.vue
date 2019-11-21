@@ -21,6 +21,7 @@
       v-model="dialogShow"
       @close="dialogShow = false"
     ></pop-up>-->
+    <div id="netlify-modal"></div>
     <v-layout v-if="getLoader" justify-center align-center class="default-layout__loader">
       <v-progress-circular
         :size="120"

@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import netlify from 'netlify-identity-widget'
 export default {
   name: 'AdminMenu',
   data() {
@@ -32,7 +33,26 @@ export default {
         { title: 'Ревізійна комісія', link: 'https://investor182.netlify.com/admin-revision' }
       ]
     }
-  }
+  },
+  created() {
+    this.netlifyInit()
+  },
+  methods: {
+    netlifyInit() {
+      netlify.init({
+        container: '#netlify-modal' // defaults to document.body,
+      });
+      netlify.on('init', user => console.log('init', user));
+      netlify.on('login', user => console.log('login', user));
+      netlify.on('logout', () => console.log('Logged out'));
+      netlify.on('error', err => console.error('Error', err));
+      netlify.on('open', () => console.log('Widget opened'));
+      netlify.on('close', () => console.log('Widget closed'));
+    },
+    onModalOpen() {
+      netlify.open('login');
+    }
+  },
 }
 </script>
 
