@@ -16,14 +16,14 @@
         <v-container py-0>
           <v-layout>
             <v-spacer v-if="!isMobile"></v-spacer>
-            <admin-menu></admin-menu>
-            <!--<a :href="adminUrl" target="_blank">
-              <button class="main-toolbar__log-in primary&#45;&#45;text" v-ripple>
+            <!--<admin-menu></admin-menu>-->
+            <a :href="adminUrl" target="_blank">
+              <button class="main-toolbar__log-in primary--text" v-ripple>
                 <v-icon color="primary">
                   input
                 </v-icon> Службовий вхід
               </button>
-            </a>-->
+            </a>
             <v-spacer v-if="isMobile"></v-spacer>
           </v-layout>
         </v-container>

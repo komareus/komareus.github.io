@@ -7,7 +7,7 @@
     >-->
     <v-layout
       class="home-page__label"
-      :mt-5="$breakpoint.is('xsOnly')"
+      :class="{ 'home-page__label--mobile': $breakpoint.is('xsOnly') }"
       justify-end
       :justify-center="$breakpoint.is('xsOnly')"
     >

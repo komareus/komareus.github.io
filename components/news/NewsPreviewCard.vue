@@ -1,9 +1,10 @@
 <template>
   <section class="news-card pa-3 white">
-    <h3 class="news-card__title mb-1">
+    <h3 class="news-card__title">
       {{ title }}
     </h3>
     <span class="news-card__date">{{ date | FormatDateTime }}</span>
+    <v-divider />
     <v-layout wrap class="mt-3">
       <span>{{ text }}</span>
     </v-layout>
@@ -40,7 +41,7 @@ export default {
     border: 1px solid $c--general-border;
     border-radius: 8px;
     &__title {
-      font-size: 1.5rem;
+      /*font-size: 1.5rem;*/
     }
     &__date {
       font-size: 0.8rem;
