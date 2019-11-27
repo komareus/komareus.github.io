@@ -30,11 +30,6 @@
                 @click.stop="openImg(ix)"
               ></v-img>
             </div>
-            <!--<expandable-image
-              class="document-item__image"
-              :src="img"
-              :alt="'document_' + ix"
-            />-->
           </v-flex>
         </v-layout>
       </v-container>
@@ -54,7 +49,7 @@
       <a class="document-item__link primary--text title" :href="fileLink" target="_blank">Посилання на документ</a>
     </v-layout>
     <a-carousel
-      :items="imagesList"
+      :items="imagesListFull"
       v-model="dialog"
     ></a-carousel>
   </v-container>
@@ -62,14 +57,15 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import PageTitle from '~/components/shared/PageTitle'
-import ACarousel from '~/components/shared/ACarousel'
+import PageTitle from '~/components/shared/PageTitle';
+import ACarousel from '~/components/shared/ACarousel';
+import mixins from '~/utils/mixins';
 export default {
   name: 'DocumentItem',
+  mixins: [mixins],
   components: { ACarousel, PageTitle },
   data() {
     return {
-      // dialog: null,
       carousel: 0
     }
   },
@@ -121,6 +117,9 @@ export default {
     imagesList() {
       return this.stateDocumentsItem.img ? this.stateDocumentsItem.img.filter(item => typeof item === 'string') : []
     },
+    imagesListFull() {
+      return this.imagesList.map(item => this.imgParams(item, { w: '1400' }))
+    },
     fileUrl() {
       return this.stateDocumentsItem.file
     },
@@ -151,6 +150,7 @@ export default {
       border: 1px solid $c--general-border;
       border-radius: 6px;
       overflow: hidden;
+      cursor: pointer;
     }
   }
 </style>
