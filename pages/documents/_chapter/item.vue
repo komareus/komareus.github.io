@@ -71,7 +71,6 @@ export default {
   },
   created() {
     const itemName = this.$route.query.name;
-    console.log('itemName', itemName)
     if (itemName) {
       this.getDocumentItem(itemName)
     } else {

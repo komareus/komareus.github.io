@@ -8,7 +8,10 @@ import chapters from './utils/configs/documentsChapters.js'
 export default {
   mode: 'spa',
   generate: {
-    routes: Object.keys(chapters).map(key => `/documents/${chapters[key].link}`),
+    routes: [
+      ...Object.keys(chapters).map(key => `/documents/${chapters[key].link}`),
+      ...Object.keys(chapters).map(key => `/documents/${chapters[key].link}/item`)
+    ],
     // async routes() {
     //   const newsRoutes = await getDynamicRoutes()
     //   return newsRoutes.map(name => `/news/${name}`)
