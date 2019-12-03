@@ -71,6 +71,7 @@ export default {
   },
   created() {
     const itemName = this.$route.query.name;
+    console.log('itemName', itemName)
     if (itemName) {
       this.getDocumentItem(itemName)
     } else {
@@ -87,6 +88,7 @@ export default {
     forceFileDownload(url) {
       const link = document.createElement('a');
       link.href = url;
+      link.target = '_blank';
       document.body.appendChild(link);
       link.click()
     },
