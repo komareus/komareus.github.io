@@ -39,20 +39,21 @@ export default {
       margin-bottom: 1rem;
     }
     &__title{
-      font-size: 2rem;
+      font-size: 1.8rem;
       &--tablet{
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
       &--mobile{
         font-size: 1.4rem;
       }
     }
     &__caption{
+      font-size: 1.1rem;
       &--tablet{
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
       &--mobile{
-        font-size: 1rem;
+        font-size: .9rem;
       }
     }
     &__divider{

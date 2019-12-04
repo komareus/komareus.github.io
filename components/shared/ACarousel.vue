@@ -43,10 +43,6 @@
 export default {
   name: 'ACarousel',
   props: {
-    // item: {
-    //   type: Number,
-    //   default: 0
-    // },
     items: {
       type: Array,
       default: () => ([])

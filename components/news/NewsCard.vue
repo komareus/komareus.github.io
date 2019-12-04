@@ -1,9 +1,13 @@
 <template>
-  <section class="news-card pa-3 white">
-    <h3 class="news-card__title mb-1">
+  <section class="news-card pa-3 white primary--text">
+    <page-title class="news-card__title mb-1">
       {{ title }}
-    </h3>
-    <span class="news-card__date">{{ date }}</span>
+      <template slot="caption">
+        <div class="grey--text text--lighten-1 mt-2">
+          {{ date | FormatDateTime }}
+        </div>
+      </template>
+    </page-title>
     <v-layout column v-for="(item, i) in content" :key="i">
       <div class="mt-3" v-html="$md.render(item.body)"></div>
       <template v-if="item.img">
@@ -33,10 +37,11 @@
 <script>
 import ACarousel from '~/components/shared/ACarousel';
 import mixins from '~/utils/mixins';
+import PageTitle from '~/components/shared/PageTitle'
 export default {
   name: 'NewsCard',
   mixins: [mixins],
-  components: { ACarousel },
+  components: { PageTitle, ACarousel },
   props: {
     title: {
       type: String,
@@ -74,7 +79,7 @@ export default {
     // }
     dialog: {
       get() {
-        return this.$route.query.item || this.$route.query.item === 0 ? this.$route.query.item : null;
+        return this.$route.query.item || this.$route.query.item === 0 ? +this.$route.query.item : null;
       },
       set(val) {
         const item = val || val === 0 ? val : undefined;

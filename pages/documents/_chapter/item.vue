@@ -6,7 +6,9 @@
     <page-title>
       {{ stateDocumentsItem.title }}
       <template slot="caption">
-        {{ stateDocumentsItem.date | FormatDateTime }}
+        <div class="document-item__caption grey--text text--lighten-1 mt-2">
+          {{ stateDocumentsItem.date | FormatDateTime }}
+        </div>
       </template>
     </page-title>
     <v-layout v-if="stateDocumentsItem.description" class="document-item__caption primary--text">
@@ -15,7 +17,7 @@
       </p>
     </v-layout>
     <template v-if="imagesList.length > 0">
-      <v-container grid-list-md fluid pa-0>
+      <v-container grid-list-md fluid pa-0 mt-2>
         <v-layout wrap>
           <v-flex
             xs12 sm6 md4 lg3
@@ -45,7 +47,7 @@
       </v-btn>
     </v-layout>
 
-    <v-layout v-if="fileLink">
+    <v-layout v-if="fileLink" mt-2>
       <a class="document-item__link primary--text title" :href="fileLink" target="_blank">Посилання на документ</a>
     </v-layout>
     <a-carousel
@@ -105,7 +107,7 @@ export default {
     }),
     dialog: {
       get() {
-        return this.$route.query.item || this.$route.query.item === 0 ? this.$route.query.item : null;
+        return this.$route.query.item || this.$route.query.item === 0 ? +this.$route.query.item : null;
       },
       set(val) {
         const item = val || val === 0 ? val : undefined;

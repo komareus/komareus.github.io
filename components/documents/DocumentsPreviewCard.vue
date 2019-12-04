@@ -46,7 +46,7 @@ export default {
       padding: 6px 12px;
     }
     &__title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: .5rem;
       &--tablet{
         font-size: 1.2rem;
