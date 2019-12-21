@@ -8,7 +8,7 @@ const serverContentItems = `https://api.github.com/repos/${githubName}/${reposit
 
 const serverImageContentItems = `https://raw.githubusercontent.com/${githubName}/${repositoryAdminName}/${contentBranch}`;
 // const serverImageContentItems = `https://github.com/${githubName}/${repositoryAdminName}/raw/master/content/`;
-const adminUrl = 'https://investor182.netlify.com/'
+const adminUrl = 'https://investor182main.netlify.com//'
 
 const news = {
   newsIndexList: listServerItems + '/news',
